@@ -5,7 +5,7 @@ The python library for archiving weibo friendship timeline.
 ###Installing
 
 ```bash
-git clonehttps://github.com/gwu-libraries/weibowarc.git
+git clone https://github.com/gwu-libraries/weibowarc.git
 cd weibowarc
 pip install -r requirements.txt
 ```
