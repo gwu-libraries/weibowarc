@@ -1,0 +1,2 @@
+weibo=0.2.2
+beautifulsoup4
