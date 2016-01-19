@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from Weibowarc import Weibowarc
+from weibowarc import Weibowarc
 import logging
 import time
 
@@ -9,7 +9,7 @@ API_SECRET = ''
 REDIRECT_URL = ''
 ACCESS_TOKEN = ''
 
-weibotest = Weibowarc(api_key=API_KEY, api_secret=API_SECRET, redirect_uri=REDIRECT_URL, token=ACCESS_TOKEN)
+weibotest = Weibowarc(api_key=API_KEY, api_secret=API_SECRET, redirect_uri=REDIRECT_URL, access_token=ACCESS_TOKEN)
 
 logging.basicConfig(filename="test.log", level=logging.INFO)
 
