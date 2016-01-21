@@ -273,10 +273,10 @@ class Weibowarc(object):
         except RuntimeError, e:
             logging.error("caught runtime error %s", e)
             error_code = ''.join(e)[0:5]
-            if error_code in [10022, 10023, 10024]:
-                time.sleep(self._wait_time())
+            if error_code in ['10022', '10023', '10024']:
+                time.sleep(self.wait_time())
             else:
-                raise RuntimeError(e)
+                raise e
         except requests.exceptions.ConnectionError as e:
             logging.error("caught connection error %s", e)
             self._connect()
@@ -289,10 +289,10 @@ class Weibowarc(object):
         except RuntimeError, e:
             logging.error("caught runtime error %s", e)
             error_code = ''.join(e)[0:5]
-            if error_code in [10022, 10023, 10024]:
-                time.sleep(self._wait_time())
+            if error_code in ['10022', '10023', '10024']:
+                time.sleep(self.wait_time())
             else:
-                raise RuntimeError(e)
+                raise e
         except requests.exceptions.ConnectionError as e:
             logging.error("caught connection error %s", e)
             self._connect()
@@ -323,7 +323,7 @@ class Weibowarc(object):
         res = self.get('account/rate_limit_status')
         return res
 
-    def _wait_time(self):
+    def wait_time(self):
         """
         If a rate limit error is encountered we will sleep until we can
         issue the API call again.

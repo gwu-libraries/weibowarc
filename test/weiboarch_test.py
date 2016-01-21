@@ -113,7 +113,20 @@ def test_friends_list_all():
     assert count == len(users)
 
 
-# test_get_friendship()
+def test_error_code():
+    friendships_url = "statuses/user_timeline"
+    params = {
+            'count': 100,
+            'page': 1,
+            'uid': 5789331626
+        }
+    try:
+        weibotest.get(friendships_url, **params)
+    except Exception, e:
+        error_code = ''.join(e)[0:5]
+        assert error_code == '21335'
+
+# test_error_code()
 # test_get_friendship()
 # test_since_id()
 # test_max_and_since_ids()
