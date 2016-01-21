@@ -298,13 +298,6 @@ class Weibowarc(object):
             self._connect()
             return self.post(*args, **kwargs)
 
-    def isTokenExpired(self):
-        """
-        check if the access_token is expired now
-        :return:
-        """
-        return not self.access_token or not self.client.alive()
-
     def user_id(self):
         """
         To get the current user id
