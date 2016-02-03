@@ -37,6 +37,8 @@ def main():
     """
 
     parser = argparse.ArgumentParser("weibowarc")
+    parser.add_argument("--debug", type=lambda v: v.lower() in ("yes", "true", "t", "1"), nargs="?",
+                    default="False", const="True")
     parser.add_argument('-s', '--stimeline', action='store_true', required=True,
                         help="archive weibos in friendship timeline")
     parser.add_argument("--max_id", dest="max_id",
@@ -65,7 +67,7 @@ def main():
 
     logging.basicConfig(
         filename=args.log,
-        level=logging.INFO,
+        level=logging.DEBUG if args.debug else logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s"
     )
 
@@ -243,9 +245,6 @@ class Weibowarc(object):
                 params['since_id'] = since_id
             if max_id:
                 params['max_id'] = max_id
-            if page_count > 100:
-                params['page'] = 2
-                # time.sleep(2)
 
             resp = self.get(friendships_url, **params)
             # print resp
@@ -256,7 +255,6 @@ class Weibowarc(object):
                 break
 
             for status in statuses:
-                page_count += 1
                 """
                 the application level need deal the retweeted text.
                 if u'retweeted_status' in status and status[u'retweeted_status'] is not None:
