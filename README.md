@@ -1,4 +1,7 @@
 # weibowarc
+
+[![Build Status](https://travis-ci.org/gwu-libraries/weibowarc.svg?branch=t_fun_cover)](https://travis-ci.org/gwu-libraries/weibowarc)  [![Coverage Status](https://coveralls.io/repos/github/gwu-libraries/weibowarc/badge.svg?branch=t_fun_cover)](https://coveralls.io/github/gwu-libraries/weibowarc?branch=t_fun_cover)
+
 The python library for archiving weibo friendship timeline.
 
 ##How to use
