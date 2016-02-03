@@ -31,6 +31,3 @@ def follow_test():
 def unfollow_test():
     users_id = []
     WeiboHtmlTest.unfollow_users(uids=users_id)
-
-follow_test()
-#unfollow_test()
